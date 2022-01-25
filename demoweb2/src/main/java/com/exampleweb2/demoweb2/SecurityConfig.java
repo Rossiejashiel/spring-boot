@@ -10,32 +10,33 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-//@Configuration
-//@EnableWebSecurity
-public class SecurityConfig {
-//        extends WebSecurityConfigurerAdapter {
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private UserService userService;
 //    @Autowired
-//    private UserService userService ;
-//    @Autowired
-//    private  BCryptPasswordEncoder bcrypt;
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
-//        return bCryptPasswordEncoder;
-//    }
-//
-//    @Override
-//    protected  void configure(AuthenticationManagerBuilder auth) throws Exception {
-//
-//        auth.userDetailsService(userService ).passwordEncoder(bcrypt);
-//    }
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception{
-//        http
-//                .authorizeHttpRequests()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .httpBasic();
-//    }
+//    private BCryptPasswordEncoder bcrypt;
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .httpBasic();
+    }
 }
