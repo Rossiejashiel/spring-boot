@@ -31,7 +31,7 @@ public class ReportService {
             JasperExportManager.exportReportToHtmlFile(jasperPrint, "C:\\Users\\USER\\Desktop" + "\\employees.html");
         }
         if (reportFormat.equalsIgnoreCase("pdf")) {
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "E:\\" + "employees.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\USER\\Desktop\\" + "employees.pdf");
 
         }
         return "reporte generado en el escritorio";

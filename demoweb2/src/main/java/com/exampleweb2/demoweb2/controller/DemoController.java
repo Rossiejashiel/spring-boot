@@ -25,10 +25,12 @@ public class DemoController {
     private ReportService service;
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,int idper,String ciudad ,int  sueldo,Model model) {
         Persona p=new Persona();
-        p.setIdPersona(4);
-        p.setNombre("Rossie2");
+        p.setIdPersona(idper);
+        p.setNombre(name);
+        p.setCiudad(ciudad);
+        p.setSueldo(sueldo);
         repo.save(p);
 
         model.addAttribute("name", name);

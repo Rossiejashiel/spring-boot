@@ -10,6 +10,24 @@ public class Persona {
     private int idPersona;
     @Column(name="nombre",length = 50)
     private  String nombre;
+    private String ciudad;
+    private Integer sueldo;
+
+    public Integer getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(Integer sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
 
     public String getNombre() {
         return nombre;
