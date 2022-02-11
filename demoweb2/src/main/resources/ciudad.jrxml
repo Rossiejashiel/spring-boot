@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ciudad" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89ac157d-cfef-44f9-850f-823b6c889d2f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgresDemo"/>
+	<queryString language="SQL">
+		<![CDATA[select ciudad from persona]]>
+	</queryString>
+	<field name="ciudad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="73" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="16" width="521" height="51" backcolor="#2FB5AA" uuid="2b5b7872-6261-47f7-9d61-4fc0b228ce8e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="177" y="26" width="200" height="30" uuid="6f30635b-7825-4862-bbee-2bd27ec9f1d3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Baskerville Old Face" size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<subreport>
+				<reportElement x="50" y="20" width="461" height="200" uuid="4ca40cbb-6d46-4837-b0c4-aedd52337210"/>
+				<subreportParameter name="city">
+					<subreportParameterExpression><![CDATA[$F{ciudad}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["personaciudad.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

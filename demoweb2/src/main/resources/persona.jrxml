@@ -2,7 +2,7 @@
 <!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Simple_Blue" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b2c3d7a7-eceb-47c9-8801-dff33907665e">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgresDemo"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString language="SQL">
 		<![CDATA[select id_persona idPersona, nombre ,ciudad, sueldo from persona]]>
 	</queryString>
@@ -89,7 +89,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="22">
+		<band height="83">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="08e4ad54-7036-4004-9639-c5840fcc1794"/>
 			</line>
@@ -145,7 +145,6 @@
 	</columnFooter>
 	<pageFooter>
 		<band height="54">
-
 			<textField>
 				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="32edf56c-3c8e-4278-81da-59acdbf02f00"/>
 				<textElement textAlignment="Right"/>
@@ -159,25 +158,23 @@
 				<reportElement x="0" y="4" width="100" height="13" uuid="be8227ca-52f2-4230-8fe0-045e822c8d14"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-
 		</band>
 	</pageFooter>
 	<summary>
 		<band height="20">
 			<staticText>
-				<reportElement x="400" y="4" width="100" height="20"/>
+				<reportElement x="400" y="0" width="100" height="20" uuid="acf9b2f2-e1f5-47d9-9797-a39918320aeb"/>
 				<box leftPadding="10"/>
 				<textElement>
-					<font isBold="true" size="10"/>
+					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="500" y="4" width="100" height="20"/>
+				<reportElement x="500" y="0" width="100" height="20" uuid="819ce65f-6695-49ef-8d1e-70716a1f3419"/>
 				<box leftPadding="10"/>
 				<textElement>
-
-					<font isBold="true" isItalic="true" size="10"/>
+					<font size="10" isBold="true" isItalic="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
 			</textField>

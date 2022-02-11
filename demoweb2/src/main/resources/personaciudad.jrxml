@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="personaciudad" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb751f07-33a9-4b80-8b9b-881acd4355ae">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgresDemo"/>
+	<parameter name="ciudadp" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select id_persona idPersona, nombre , sueldo from persona
+where ciudad=  $P{ciudadp}]]>
+	</queryString>
+	<field name="idPersona" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="sueldo" class="java.lang.Integer"/>
+	<variable name="Sum" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{sueldo}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="0" width="100" height="30" uuid="fc61f7a6-cd69-451a-908f-c58c000bc9fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a4e67b5-61fb-4ef6-a980-b0b7a44e5d62"/>
+				</reportElement>
+				<text><![CDATA[idPersona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="30" uuid="9b660a17-543e-43c5-aa9e-8110ab8a2413">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dcb26a44-f9cf-4a90-aa27-0386985a8e80"/>
+				</reportElement>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" uuid="b79ee928-d498-47d2-b5c6-46670e4a43de">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1ffbf520-e8cb-4d8e-956f-e480f2939c67"/>
+				</reportElement>
+				<text><![CDATA[sueldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="81" y="21" width="100" height="30" uuid="81af1158-9db3-4ad2-b3dd-85f421f23813">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7a4e67b5-61fb-4ef6-a980-b0b7a44e5d62"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idPersona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="21" width="100" height="30" uuid="19e40c9f-b57a-4706-b313-69a62afe5389">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dcb26a44-f9cf-4a90-aa27-0386985a8e80"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="20" width="100" height="30" uuid="ebdbcba2-d48e-47c3-b514-98c65946e785">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1ffbf520-e8cb-4d8e-956f-e480f2939c67"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sueldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="55" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="55" splitType="Stretch">
+			<rectangle>
+				<reportElement x="60" y="5" width="446" height="31" backcolor="#21B3B5" uuid="8e207fd5-c187-49ac-af11-85f176f6f698"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="70" y="7" width="80" height="26" uuid="c53c8c37-c927-45e0-a818-79f37c670628"/>
+				<textElement>
+					<font fontName="Bodoni MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="5" width="100" height="30" uuid="ea75a98b-f300-4db1-9b8c-6618582f0e78"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Sum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
