@@ -21,7 +21,8 @@ public class ReportService {
 
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
         List<Persona> persona = repository.findAll();
-        File file = ResourceUtils.getFile("classpath:ciudad.jrxml");
+        //File file = ResourceUtils.getFile("classpath:ciudad.jrxml");
+        File file = ResourceUtils.getFile("classpath:by_city.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(persona);
         Map<String, Object> parameters = new HashMap<>();
@@ -32,6 +33,7 @@ public class ReportService {
         }
         if (reportFormat.equalsIgnoreCase("pdf")) {
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\USER\\Desktop\\" + "employees.pdf");
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "E:\\" + "employees.pdf");
 
         }
         return "reporte generado en el escritorio";
