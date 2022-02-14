@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ciudad" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89ac157d-cfef-44f9-850f-823b6c889d2f">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ciudad" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51d52a87-9bc3-4f74-86d2-b37c06c68b81">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgresDemo"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString language="SQL">
-		<![CDATA[select ciudad from persona]]>
+		<![CDATA[select distinct ciudad  from persona]]>
 	</queryString>
 	<field name="ciudad" class="java.lang.String"/>
+
+
+	<group name="ciudad">
+		<groupExpression><![CDATA[$F{ciudad}]]></groupExpression>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="6" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="10" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="73" splitType="Stretch">
+		<band height="57" splitType="Stretch">
 			<rectangle>
-				<reportElement x="10" y="16" width="521" height="51" backcolor="#2FB5AA" uuid="2b5b7872-6261-47f7-9d61-4fc0b228ce8e"/>
+				<reportElement x="-10" y="0" width="581" height="31" backcolor="rgba(116, 124, 232, 0.4509804)" uuid="b3acd2ac-fbe3-4826-bd80-b07637eb4b70"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.019607844)"/>
+				</graphicElement>
 			</rectangle>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="e4183712-2b03-4ae0-8e2d-5ac3a04fc7ec"/>
+				<textElement>
+					<font fontName="Bell MT" size="19"/>
+				</textElement>
+				<text><![CDATA[Personas de ]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="177" y="26" width="200" height="30" uuid="6f30635b-7825-4862-bbee-2bd27ec9f1d3"/>
-				<textElement textAlignment="Center">
-					<font fontName="Baskerville Old Face" size="22"/>
+				<reportElement x="280" y="0" width="100" height="30" uuid="f787c06c-670a-4536-b877-efdba2a4c9ec"/>
+				<textElement>
+					<font fontName="Bell MT" size="19"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="240" splitType="Stretch">
+		<band height="146" splitType="Stretch">
 			<subreport>
-				<reportElement x="50" y="20" width="461" height="200" uuid="4ca40cbb-6d46-4837-b0c4-aedd52337210"/>
-				<subreportParameter name="city">
+				<reportElement x="20" y="10" width="500" height="20" uuid="2b1148f1-e289-42e3-b706-140e5e692fa5"/>
+				<subreportParameter name="ciudad">
+					<subreportParameterExpression><![CDATA[$F{ciudad}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="leerciudad">
 					<subreportParameterExpression><![CDATA[$F{ciudad}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -43,12 +61,12 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="76" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="67" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="59" splitType="Stretch"/>
 	</summary>
 </jasperReport>

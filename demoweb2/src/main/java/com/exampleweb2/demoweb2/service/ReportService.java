@@ -22,7 +22,7 @@ public class ReportService {
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
         List<Persona> persona = repository.findAll();
         //File file = ResourceUtils.getFile("classpath:ciudad.jrxml");
-        File file = ResourceUtils.getFile("classpath:by_city.jrxml");
+        File file = ResourceUtils.getFile("classpath:ciudad.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(persona);
         Map<String, Object> parameters = new HashMap<>();
