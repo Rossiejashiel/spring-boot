@@ -1,8 +1,6 @@
 package com.exampleweb2.demoweb2.controller;
 
 
-
-
 import com.exampleweb2.demoweb2.model.Persona;
 import com.exampleweb2.demoweb2.service.ReportService;
 import net.sf.jasperreports.engine.JRException;
@@ -25,8 +23,8 @@ public class DemoController {
     private ReportService service;
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,int idper,String ciudad ,int  sueldo,Model model) {
-        Persona p=new Persona();
+    public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, int idper, String ciudad, int sueldo, Model model) {
+        Persona p = new Persona();
         p.setIdPersona(idper);
         p.setNombre(name);
         p.setCiudad(ciudad);
@@ -36,6 +34,7 @@ public class DemoController {
         model.addAttribute("name", name);
         return "greeting";
     }
+
     @GetMapping("/listar")
     public String greeting(Model model) {
 
@@ -46,8 +45,12 @@ public class DemoController {
     @GetMapping("/report/{format}")
     public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException {
 
-
-        return service.exportReport(format);
+        try {
+            service.exportReport(format);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "greeting";
     }
 
 }
