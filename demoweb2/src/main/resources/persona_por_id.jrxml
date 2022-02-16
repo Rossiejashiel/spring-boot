@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="persona_por_id" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="98af11fe-5abf-49d5-819d-0561ab1697cd">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="prueba"/>
+	<parameter name="id" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select * from listarid( $P{id})]]>
+	</queryString>
+	<field name="idPersona" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.String"/>
+	<field name="sueldo" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="54">
+			<textField>
+				<reportElement x="200" y="12" width="159" height="30" uuid="b7ded92e-9fda-4c82-81b1-11cebe68b48b"/>
+				<textElement>
+					<font fontName="Bell MT" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<rectangle>
+				<reportElement x="40" y="0" width="451" height="21" backcolor="rgba(222, 193, 51, 0.1764706)" uuid="fec90a74-e8b8-41fb-af62-645100fc469e"/>
+				<graphicElement>
+					<pen lineColor="rgba(0, 0, 0, 0.019607844)"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="70" y="0" width="100" height="30" uuid="32bf23e7-6349-4e53-9dbd-99c3719db996">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ba19ec8-8874-4cfb-9622-191eff4b3897"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Bell MT" size="16"/>
+				</textElement>
+				<text><![CDATA[idPersona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="b853df24-ed34-4926-9ca2-cab480e812bd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1d3e2a90-22e9-487c-afce-dc38ccdaa32c"/>
+				</reportElement>
+				<textElement markup="none">
+					<font fontName="Bell MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="100" height="30" uuid="84ea17b9-94d0-40b6-84bf-97e43f53172d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ac477bd-742b-4089-a04b-0a26b1a06923"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Bell MT" size="16"/>
+				</textElement>
+				<text><![CDATA[ciudad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" uuid="13fe6bc5-71e7-44f1-b13b-649eca71e510">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="872fede2-a063-41b0-a0d1-70f7c73f85e5"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Bell MT" size="16"/>
+				</textElement>
+				<text><![CDATA[Sueldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="100" height="20" uuid="13bac6ff-875c-4372-93bd-16ebeaf13fe2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ba19ec8-8874-4cfb-9622-191eff4b3897"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{idPersona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="20" uuid="e7b9e9b0-9bee-4394-ac43-b557c1c09aee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1d3e2a90-22e9-487c-afce-dc38ccdaa32c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="100" height="20" uuid="05146dfb-ad54-45ea-ac88-bcc533fcc830">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5ac477bd-742b-4089-a04b-0a26b1a06923"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="dd20e1ae-44f3-4197-a599-e7382c2d6db4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="872fede2-a063-41b0-a0d1-70f7c73f85e5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sueldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="67" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch"/>
+	</summary>
+</jasperReport>
