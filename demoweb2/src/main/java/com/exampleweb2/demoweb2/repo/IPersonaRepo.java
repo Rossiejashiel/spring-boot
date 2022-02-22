@@ -19,4 +19,5 @@ public interface IPersonaRepo extends JpaRepository<Persona,Integer> {
     @Query(value="select idPersona as id_persona, nombre,ciudad,sueldo from listarid(:idIn)", nativeQuery = true)
     List<Persona> listaid(@Param("idIn") Integer idiN);
 
+
 }

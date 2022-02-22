@@ -1,7 +1,9 @@
 package com.exampleweb2.demoweb2.controller;
 
 
+import com.exampleweb2.demoweb2.mapper.PersonaMapper;
 import com.exampleweb2.demoweb2.model.Persona;
+import com.exampleweb2.demoweb2.service.PersonaExcelExporter;
 import com.exampleweb2.demoweb2.service.PersonaService;
 import com.exampleweb2.demoweb2.service.ReportService;
 import net.sf.jasperreports.engine.JRException;
@@ -15,15 +17,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.exampleweb2.demoweb2.repo.IPersonaRepo;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class DemoController {
     @Autowired(required = true)
     private IPersonaRepo repo;
+
     @Autowired
     private ReportService service;
     @Autowired
@@ -78,4 +81,23 @@ public class DemoController {
         }
         return "greeting";
     }
+
+    //MyBait
+    @GetMapping("/listartodo")
+    public ResponseEntity getAll(){
+        List<Persona> lista =personaService.findAll();
+        return new ResponseEntity(lista, HttpStatus.OK);
+    }
+    //exporta excel
+    @GetMapping("/export_excel")
+    public void exportToEsxcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        String headerKey ="Content-Disposition";
+        String headerValue="attachement;filename=user.xls";
+        response.setHeader(headerKey,headerValue);
+        List<Persona> listaPersona=personaService.findAll();
+        PersonaExcelExporter excelExporter=new PersonaExcelExporter(listaPersona);
+        excelExporter.export(response);
+    }
+
 }

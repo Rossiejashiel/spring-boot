@@ -1,5 +1,6 @@
 package com.exampleweb2.demoweb2.service;
 
+import com.exampleweb2.demoweb2.mapper.PersonaMapper;
 import com.exampleweb2.demoweb2.model.Persona;
 import com.exampleweb2.demoweb2.repo.IPersonaRepo;
 import net.sf.jasperreports.engine.*;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import javax.sql.DataSource;
-import javax.swing.text.html.Option;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -27,13 +27,14 @@ public class PersonaService {
     public List<Persona> lista(){
         return repository.listaprocedure();
     }
+
     public List<Persona> getById(Integer id){
         return repository.listaid(id);
     }
     public String crearReporte(String reportFormat,Integer id) throws FileNotFoundException, JRException, Exception {
 
         System.out.println("dataSource: "+dataSource);
-     
+
         List<Persona> persona = Collections.singletonList(repository.getById(id));
 
         //File file = ResourceUtils.getFile("classpath:ciudad.jrxml");
@@ -62,8 +63,11 @@ public class PersonaService {
         }
         return "reporte generado en el escritorio";
     }
-
-
+    @Autowired
+    private PersonaMapper personaMapper;
+    public List<Persona> findAll(){
+        return personaMapper.findAll();
+    }
 
 
 
